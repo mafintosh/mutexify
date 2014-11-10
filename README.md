@@ -31,7 +31,7 @@ lock(function(release) {
 A common pattern is to call a callback after you release the lock.
 To do this in a one-liner pass the callback and the value to `release(cb, err, value)`
 
-```
+``` js
 var write = function(data, cb) {
   lock(function(release) {
     fs.writeFile('locked-file.txt', data, release.bind(null, cb))
