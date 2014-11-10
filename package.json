@@ -1,6 +1,6 @@
 {
   "name": "mutexify",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "mutex lock for javascript",
   "main": "index.js",
   "dependencies": {},
