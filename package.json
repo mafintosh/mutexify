@@ -1,7 +1,7 @@
 {
   "name": "mutexify",
   "version": "0.0.0",
-  "description": "WIP - nothing to see here",
+  "description": "mutex lock for javascript",
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
@@ -19,5 +19,9 @@
   "bugs": {
     "url": "https://github.com/mafintosh/mutexify/issues"
   },
+  "keywords": [
+    "mutex",
+    "lock"
+  ],
   "homepage": "https://github.com/mafintosh/mutexify"
 }
