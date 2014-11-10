@@ -6,6 +6,8 @@ Bike shed mutex lock implementation in node.js
 npm install mutexify
 ```
 
+[![build status](http://img.shields.io/travis/mafintosh/mutexify.svg?style=flat)](http://travis-ci.org/mafintosh/mutexify)
+
 Hasn't this been done before? Yes but the specific semantics of this made some of my code simpler
 
 ## Usage
