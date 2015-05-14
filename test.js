@@ -32,3 +32,26 @@ tape('calls callback', function(t) {
     release(cb, null, 'hello world')
   })
 })
+
+tape('calls the locking callbacks in a different stack', function(t) {
+  t.plan(2)
+
+  var lock = mutexify()
+
+  var topScopeFinished = false
+  var secondScopeFinished = false
+
+  lock(function(release) {
+    t.ok(topScopeFinished, 'the test function has already finished running')
+    release()
+    secondScopeFinished = true
+  })
+
+  lock(function(release) {
+    t.ok(secondScopeFinished, 'the last lock\'s call stack is done')
+    release()
+    t.end()
+  })
+
+  topScopeFinished = true
+})

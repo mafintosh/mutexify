@@ -5,7 +5,9 @@ var mutexify = function() {
   var acquire = function(fn) {
     if (used) return queue.push(fn)
     used = true
-    fn(release)
+    process.nextTick(function() {
+      fn(release)
+    })
     return 0
   }
 
