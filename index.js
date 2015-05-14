@@ -1,18 +1,20 @@
 var mutexify = function() {
   var queue = []
-  var used = false
+  var used = null
 
-  var acquire = function(fn) {
+  var call = function () {
+    used(release)
+  }
+
+  var acquire = function (fn) {
     if (used) return queue.push(fn)
-    used = true
-    process.nextTick(function() {
-      fn(release)
-    })
+    used = fn
+    process.nextTick(call)
     return 0
   }
 
-  var release = function(fn, err, value) {
-    used = false
+  var release = function (fn, err, value) {
+    used = null
     if (queue.length) acquire(queue.shift())
     if (fn) fn(err, value)
   }
