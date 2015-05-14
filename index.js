@@ -14,9 +14,7 @@ var mutexify = function() {
   var release = function(fn, err, value) {
     used = false
     if (queue.length) acquire(queue.shift())
-    if (fn) process.nextTick(function() {
-      fn(err, value)
-    })
+    if (fn) fn(err, value)
   }
 
   return acquire

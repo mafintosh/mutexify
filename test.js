@@ -21,10 +21,8 @@ tape('locks', function(t) {
 
 tape('calls callback', function(t) {
   var lock = mutexify()
-  var lockFunctionFinished = false
 
   var cb = function(err, value) {
-    t.ok(lockFunctionFinished, 'lock function completed already')
     t.same(err, null)
     t.same(value, 'hello world')
     t.end()
@@ -32,7 +30,6 @@ tape('calls callback', function(t) {
 
   lock(function(release) {
     release(cb, null, 'hello world')
-    lockFunctionFinished = true
   })
 })
 
