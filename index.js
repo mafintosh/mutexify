@@ -9,7 +9,7 @@ var mutexify = function() {
   var acquire = function (fn) {
     if (used) return queue.push(fn)
     used = fn
-    process.nextTick(call)
+    setImmediate(call)
     return 0
   }
 
