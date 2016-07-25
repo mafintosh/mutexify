@@ -8,7 +8,7 @@ npm install mutexify
 
 [![build status](http://img.shields.io/travis/mafintosh/mutexify.svg?style=flat)](http://travis-ci.org/mafintosh/mutexify)
 
-Hasn't this been done before? Yes but the specific semantics of this made some of my code simpler
+Hasn't this been done before? Yes, but the specific semantics of this made some of my code simpler.
 
 ## Usage
 
@@ -40,6 +40,8 @@ var write = function(data, cb) {
   }) 
 }
 ```
+
+`mutexify` guarantees that the order that a mutex was requested in is the order that access will be given.
 
 ## License
 
