@@ -2,14 +2,16 @@ var tape = require('tape')
 var mutexify = require('./')
 
 tape('locks', function(t) {
-  t.plan(10)
+  t.plan(21)
 
   var lock = mutexify()
   var used = false
+  t.ok(!lock.locked, 'not locked')
 
   for (var i = 0; i < 10; i++) {
     lock(function(release) {
       t.ok(!used, 'one at the time')
+      t.ok(lock.locked, 'locked')
       used = true
       setImmediate(function() {
         used = false

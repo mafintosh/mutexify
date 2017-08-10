@@ -37,11 +37,13 @@ To do this in a one-liner pass the callback and the value to `release(cb, err, v
 var write = function(data, cb) {
   lock(function(release) {
     fs.writeFile('locked-file.txt', data, release.bind(null, cb))
-  }) 
+  })
 }
 ```
 
 `mutexify` guarantees that the order that a mutex was requested in is the order that access will be given.
+
+You can read the lock's current state on the `lock.locked` property.
 
 ## License
 
