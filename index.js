@@ -13,6 +13,7 @@ var mutexify = function() {
     process.nextTick(call)
     return 0
   }
+
   acquire.locked = false
 
   var release = function (fn, err, value) {
