@@ -45,6 +45,28 @@ var write = function(data, cb) {
 
 You can read the lock's current state on the `lock.locked` property.
 
+### Usage with promises
+
+`mutexify` provides a Promise-based alternative.
+
+```js
+const { promises: mutexify } = require('mutexify')
+
+;(async () => {
+  var lock = mutexify()
+
+  var release = await lock()
+  console.log('i am now locked')
+  setTimeout(function () {
+    release()
+  }, 1000)
+
+  release = await lock()
+  console.log('1 second later')
+  release()
+})()
+```
+
 ## License
 
 MIT
