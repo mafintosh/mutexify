@@ -1,4 +1,4 @@
-var mutexify = function() {
+var mutexify = function () {
   var queue = []
   var used = null
 
