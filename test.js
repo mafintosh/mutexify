@@ -1,5 +1,6 @@
 var tape = require('tape')
 var mutexify = require('./')
+var mutexifyPromise = require('./promises')
 
 tape('locks', function (t) {
   t.plan(21)
@@ -61,7 +62,7 @@ tape('calls the locking callbacks in a different stack', function (t) {
 tape('locks with promises', async function (t) {
   t.plan(21)
 
-  var lock = mutexify.promises()
+  var lock = mutexifyPromise()
   var used = false
   t.ok(!lock.locked, 'not locked')
   for (var i = 0; i < 10; i++) {
