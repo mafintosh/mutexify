@@ -1,6 +1,6 @@
 var tape = require('tape')
 var mutexify = require('./')
-var mutexifyPromise = require('./promises')
+var mutexifyPromise = require('./promise')
 
 tape('locks', function (t) {
   t.plan(21)

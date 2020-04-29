@@ -50,7 +50,7 @@ You can read the lock's current state on the `lock.locked` property.
 `mutexify` provides a Promise-based alternative.
 
 ```js
-const mutexify = require('mutexify/promises')
+const mutexify = require('mutexify/promise')
 
 ;(async () => {
   var lock = mutexify()
