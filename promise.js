@@ -4,7 +4,7 @@ var mutexifyPromise = function () {
   var lock = mutexify()
 
   var acquire = function () {
-    return new Promise((resolve) => lock(resolve))
+    return new Promise(lock)
   }
 
   Object.defineProperty(acquire, 'locked', {
