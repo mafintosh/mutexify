@@ -10,7 +10,7 @@ var mutexify = function () {
     if (used) return queue.push(fn)
     used = fn
     acquire.locked = true
-    process.nextTick(call)
+    process.nextTick(call).unref()
     return 0
   }
 
