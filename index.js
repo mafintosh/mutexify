@@ -10,7 +10,7 @@ var mutexify = function () {
     if (used) return queue.push(fn)
     used = fn
     acquire.locked = true
-    process.nextTick(call)
+    typeof window === 'undefined' ? process.nextTick(call) : setTimeout(call, 0)
     return 0
   }
 
