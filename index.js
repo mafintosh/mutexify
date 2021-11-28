@@ -1,4 +1,4 @@
-const queueTick = require('queue-tick')
+var queueTick = require('queue-tick')
 
 var mutexify = function () {
   var queue = []
