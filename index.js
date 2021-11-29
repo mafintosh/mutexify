@@ -1,3 +1,5 @@
+var queueTick = require('queue-tick')
+
 var mutexify = function () {
   var queue = []
   var used = null
@@ -10,7 +12,7 @@ var mutexify = function () {
     if (used) return queue.push(fn)
     used = fn
     acquire.locked = true
-    process.nextTick(call)
+    queueTick(call)
     return 0
   }
 
